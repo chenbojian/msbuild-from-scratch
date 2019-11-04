@@ -10,4 +10,8 @@
         <MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
         <Csc Sources="@(Compile)" OutputAssembly="$(OutputPath)$(AssemblyName).exe" />
     </Target>
+    <Target Name="Clean">
+        <Delete Files="$(OutputPath)$(AssemblyName).exe" />
+    </Target>
+    <Target Name="Rebuild" DependsOnTargets="Clean;Build" />
 </Project>
